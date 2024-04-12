@@ -1,0 +1,205 @@
+[
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit_authenticator",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit_authenticator",
+        "description": "streamlit_authenticator",
+        "detail": "streamlit_authenticator",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "SafeLoader",
+        "importPath": "yaml.loader",
+        "description": "yaml.loader",
+        "isExtraImport": true,
+        "detail": "yaml.loader",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "uvicorn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uvicorn",
+        "description": "uvicorn",
+        "detail": "uvicorn",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "joblib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "joblib",
+        "description": "joblib",
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "authenticator",
+        "kind": 5,
+        "importPath": "Home 2",
+        "description": "Home 2",
+        "peekOfCode": "authenticator = stauth.Authenticate(\n    config['credentials'],\n    config['cookie']['name'],\n    config['cookie']['key'],\n    config['cookie']['expiry_days'],\n    config['preauthorized']\n)\n# Perform user authentication\nname, authentication_status, username = authenticator.login(location='sidebar')\n# Handle authentication status",
+        "detail": "Home 2",
+        "documentation": {}
+    },
+    {
+        "label": "SepssisFeatures",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class SepssisFeatures(BaseModel):\n    PRG: int\n    PL: int\n    PR: int\n    SK: int\n    TS: int\n    M11: float\n    BD2: float\n    Age: int\n    Insurance: int",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def home():\n    return {\"Hello World\"}\n# Info route\n@app.get('/info')\ndef appinfo():\n    return {\n        \"title\": \"Welcome to the Sepssis Prediction API!\",\n    }\n@app.post(\"/predict_Random_Forest_Model\")\ndef predict_Random_Forest(data: SepssisFeatures):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "appinfo",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def appinfo():\n    return {\n        \"title\": \"Welcome to the Sepssis Prediction API!\",\n    }\n@app.post(\"/predict_Random_Forest_Model\")\ndef predict_Random_Forest(data: SepssisFeatures):\n    df = pd.DataFrame([data.model_dump()])\n    prediction = forest_pipeline.predict(df)\n    prediction = int(prediction[0])\n    prediction = encoder.inverse_transform([prediction])[0]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "predict_Random_Forest",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def predict_Random_Forest(data: SepssisFeatures):\n    df = pd.DataFrame([data.model_dump()])\n    prediction = forest_pipeline.predict(df)\n    prediction = int(prediction[0])\n    prediction = encoder.inverse_transform([prediction])[0]\n    probabilities = forest_pipeline.predict_proba(df)\n    probabilities = probabilities.tolist()\n    return {'predictions': prediction, 'probabilities': probabilities}\n@app.post(\"/predict_Decision_Tree_Model\")\ndef predict_Decision_Tree(data: SepssisFeatures):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "predict_Decision_Tree",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def predict_Decision_Tree(data: SepssisFeatures):\n    df = pd.DataFrame([data.model_dump()])\n    prediction = decision_tree_pipeline.predict(df)\n    prediction = int(prediction[0])\n    prediction = encoder.inverse_transform([prediction])[0]\n    probabilities = decision_tree_pipeline.predict_proba(df)\n    probabilities = probabilities.tolist()\n    return {'predictions': prediction, 'probabilities': probabilities}\n@app.post(\"/predict_Logistic_Model\")\ndef predict_Logistic(data: SepssisFeatures):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "predict_Logistic",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def predict_Logistic(data: SepssisFeatures):\n    df = pd.DataFrame([data.model_dump()])\n    prediction = logistic_pipeline.predict(df)\n    prediction = int(prediction[0])\n    prediction = encoder.inverse_transform([prediction])[0]\n    probabilities = logistic_pipeline.predict_proba(df)\n    probabilities = probabilities.tolist()\n    return {'predictions': prediction, 'probabilities': probabilities}\nif __name__ == '__main__':\n    uvicorn.run(app, host=\"0.0.0.0\", port=8000, debug=True)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI()\nclass SepssisFeatures(BaseModel):\n    PRG: int\n    PL: int\n    PR: int\n    SK: int\n    TS: int\n    M11: float\n    BD2: float\n    Age: int",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "forest_pipeline",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "forest_pipeline = joblib.load(\"./models/rf_classifier_pipeline.pkl\")\ndecision_tree_pipeline = joblib.load(\"./models/tree_classifier_pipeline.pkl\")\nlogistic_pipeline = joblib.load(\"./models/logistic_classifier_pipeline.pkl\")\nencoder = joblib.load(\"./label_encoder.pkl\")\n@app.get('/')\ndef home():\n    return {\"Hello World\"}\n# Info route\n@app.get('/info')\ndef appinfo():",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "decision_tree_pipeline",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "decision_tree_pipeline = joblib.load(\"./models/tree_classifier_pipeline.pkl\")\nlogistic_pipeline = joblib.load(\"./models/logistic_classifier_pipeline.pkl\")\nencoder = joblib.load(\"./label_encoder.pkl\")\n@app.get('/')\ndef home():\n    return {\"Hello World\"}\n# Info route\n@app.get('/info')\ndef appinfo():\n    return {",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "logistic_pipeline",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "logistic_pipeline = joblib.load(\"./models/logistic_classifier_pipeline.pkl\")\nencoder = joblib.load(\"./label_encoder.pkl\")\n@app.get('/')\ndef home():\n    return {\"Hello World\"}\n# Info route\n@app.get('/info')\ndef appinfo():\n    return {\n        \"title\": \"Welcome to the Sepssis Prediction API!\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "encoder",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "encoder = joblib.load(\"./label_encoder.pkl\")\n@app.get('/')\ndef home():\n    return {\"Hello World\"}\n# Info route\n@app.get('/info')\ndef appinfo():\n    return {\n        \"title\": \"Welcome to the Sepssis Prediction API!\",\n    }",
+        "detail": "main",
+        "documentation": {}
+    }
+]
