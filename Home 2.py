@@ -32,14 +32,14 @@ name, authentication_status, username = authenticator.login(location='sidebar')
 if authentication_status == False:
     st.error("🚫 Username/Password is incorrect")  # Display error message if authentication fails
     st.code("""
-            Username: deofis
-            Password: abc123""")
+            Username: lmarufu
+            Password: 123abc""")
     
 if authentication_status == None:
     st.warning("Please enter username and Password")  # Prompt user to enter username and password if not authenticated
     st.code("""
-            Username: deofis
-            Password: abc123""")
+            Username: lmarufu
+            Password: 123abc""")
 
 
 if authentication_status == True:

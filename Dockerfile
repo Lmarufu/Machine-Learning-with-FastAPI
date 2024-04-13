@@ -14,6 +14,7 @@ COPY . /app
  
 # expose port 8077
 EXPOSE 8077
+
  
 #Run the FastApi application
 CMD ['uvicorn', 'main:app', '--host', '0.0.0.0','--port', 8077]

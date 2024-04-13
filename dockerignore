@@ -1,2 +1,11 @@
 /env
-__pycache__
+/__pycache__
+/data set
+/notebook
+/label_encoder
+/README.md
+/vscode
+/.mypy_cache
+/LICENSE
+/.gitignore
+/label_encoder
